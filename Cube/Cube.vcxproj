@@ -158,7 +158,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CubeEngine.cpp" />
+    <ClCompile Include="RenderManager.cpp" />
+    <ClCompile Include="WindowManager.cpp" />
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="ErrorManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -168,7 +171,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CubeEngine.h" />
+    <ClInclude Include="BusNode.h" />
+    <ClInclude Include="Message.h" />
+    <ClInclude Include="MessageBus.h" />
+    <ClInclude Include="RenderManager.h" />
+    <ClInclude Include="WindowManager.h" />
+    <ClInclude Include="CubeEngineErrors.h" />
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="ErrorManager.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>

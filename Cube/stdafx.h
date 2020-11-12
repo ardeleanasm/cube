@@ -14,5 +14,8 @@
 #include <iostream>
 #include <memory>
 #include <atomic> 
+#include <functional>
+#include <queue>
+#include <vector>
 
 #include "SDL.h"
