@@ -17,5 +17,5 @@
 #include <functional>
 #include <queue>
 #include <vector>
-
+#include <optional>
 #include "SDL.h"

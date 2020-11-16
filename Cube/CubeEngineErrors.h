@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
-enum CubeEngineError_t : uint16_t {
+enum CubeEngineError_t : Uint16 {
 	ESuccess,
 	ESDLInit,
+	EWindowInit,
 };

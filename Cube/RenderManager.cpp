@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "RenderManager.h"
-
+#include "MessageType.h"
 
 RenderManager::RenderManager()
 {
@@ -23,13 +23,13 @@ void RenderManager::Init(SDL_Window* window)
 	}
 }
 
-void RenderManager::Update()
+void RenderManager::UpdateEvent()
 {
 }
 
 void RenderManager::OnNotify(Message message)
 {
-	if (message.GetEvent().compare("render") == 0) {
+	if (message.GetEventType() == E_Renderer_Render) {
 		Render();
 
 	}

@@ -7,7 +7,7 @@ public:
 	virtual ~RenderManager();
 	
 	void Init(SDL_Window* window);
-	void Update();
+	void UpdateEvent();
 	
 protected:
 	void Render();

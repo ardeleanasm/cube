@@ -158,6 +158,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="WindowManager.cpp" />
     <ClCompile Include="Engine.cpp" />
@@ -172,8 +173,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BusNode.h" />
+    <ClInclude Include="InputManager.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="MessageBus.h" />
+    <ClInclude Include="MessageType.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="WindowManager.h" />
     <ClInclude Include="CubeEngineErrors.h" />
