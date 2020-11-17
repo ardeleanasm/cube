@@ -7,7 +7,7 @@ class BusNode
 public:
     BusNode(){}
 
-    virtual void Update() {};
+    virtual void UpdateEvent() {};
     void Register(MessageBus* messageBus) {
         this->messageBus = messageBus;
         this->messageBus->AddReceiver(this->GetNotifyFunc());

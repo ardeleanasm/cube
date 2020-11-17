@@ -6,9 +6,10 @@ class ErrorManager:public BusNode
 public:
 	ErrorManager(){}
 	~ErrorManager() {}
-	void Update();
+	void UpdateEvent();
 protected:
 private:
 	void OnNotify(Message message);
+
 };
 
