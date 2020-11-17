@@ -19,6 +19,13 @@ void InputManager::HandleEvent()
         g_MessageBus = Message(E_Engine_SystemQuit);
         UpdateEvent();
         break;
+    case SDL_KEYDOWN:
+    case SDL_KEYUP:
+    case SDL_MOUSEMOTION:
+    case SDL_MOUSEBUTTONDOWN:
+    case SDL_MOUSEBUTTONUP:
+    case SDL_MOUSEWHEEL:
+        break;
     default:
         break;
     }

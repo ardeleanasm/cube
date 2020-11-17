@@ -24,13 +24,13 @@ void WindowManager::Init(std::string title, int posX, int posY, int width, int h
 	}
 	
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
-		g_ErrorEventMessage = EventData<Uint16>(ESDLInit);
+		g_ErrorEventMessage = ESDLInit;
 		UpdateEvent();
 	}
 	else {
 		p_Window = SDL_CreateWindow(title.c_str(), posX, posY, width, height, flags);
 		if (p_Window == nullptr) {
-			g_ErrorEventMessage = EventData<Uint16>(EWindowInit);
+			g_ErrorEventMessage =EWindowInit;
 			UpdateEvent();
 		}
 		

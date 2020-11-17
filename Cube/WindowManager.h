@@ -17,7 +17,7 @@ protected:
 	void OnNotify(Message message);
 private:
 	SDL_Window* p_Window = nullptr;
-	EventData<Uint16> g_ErrorEventMessage;
+	Uint16 g_ErrorEventMessage;
 	
 	
 };

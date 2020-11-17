@@ -1,36 +1,14 @@
 #pragma once
 #include "stdafx.h"
 #include "MessageType.h"
-
-template <typename V>
-class EventData {
-public:
-    EventData() {
-
-    }
-    EventData(const V event) {
-        g_Event = event;
-    }
-    ~EventData() {
-
-    }
-
-    V GetEvent() const {
-        return g_Event;
-    }
-
-private:
-    MessageType_t e_EventType;
-    V g_Event;
-};
-
+#include "Sprite.h"
 class Message
 {
 public:
     Message() {
 
     }
-    Message(const Uint16 eventType, const EventData<Uint16> eventData)
+    Message(const Uint16 eventType, const Uint16 eventData)
     {
         e_EventType = (MessageType_t)eventType;
         g_EventDataU16 = eventData;
@@ -40,6 +18,13 @@ public:
     {
         e_EventType = (MessageType_t)eventType;
     }
+
+    Message(const Uint16 eventType, Sprite*eventData)
+    {
+        e_EventType = (MessageType_t)eventType;
+        p_EventSpriteObj = eventData;
+    }
+    
 
     ~Message()
     {
@@ -52,14 +37,20 @@ public:
         return e_EventType;
     }
 
-    Uint16 GetEventData() const
+    Uint16 GetEventDataU16() const
     {
-        return g_EventDataU16.GetEvent();
+        return g_EventDataU16;
+    }
+
+    Sprite* GetEventSpriteObj() const
+    {
+        return p_EventSpriteObj;
     }
 
 private:
     MessageType_t e_EventType;
-    EventData<Uint16> g_EventDataU16;
+    Uint16 g_EventDataU16;
+    Sprite* p_EventSpriteObj;
 
 };
 

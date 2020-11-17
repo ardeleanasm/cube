@@ -1,14 +1,14 @@
 #ifdef __unix__         
-#define LINUX
+#define PREFERRED_RENDERER "opengl"
+
 #elif defined(_WIN32) || defined(WIN32) 
-#define WINDOWS
+
+#define PREFERRED_RENDERER "direct3d"
+#include "targetver.h"
+
+#define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
 
 #endif
-#ifdef WINDOWS
-#include "targetver.h"
-#define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
-#endif // _WIN32
-
 
 
 #include <iostream>
@@ -18,4 +18,8 @@
 #include <queue>
 #include <vector>
 #include <optional>
+#include <algorithm>
+#include <cstring>
 #include "SDL.h"
+
+
