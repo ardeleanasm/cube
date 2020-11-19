@@ -3,7 +3,8 @@
 
 #elif defined(_WIN32) || defined(WIN32) 
 
-#define PREFERRED_RENDERER "direct3d"
+//#define PREFERRED_RENDERER "direct3d"
+#define PREFERRED_RENDERER "opengl"
 #include "targetver.h"
 
 #define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers

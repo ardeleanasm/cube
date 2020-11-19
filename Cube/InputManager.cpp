@@ -1,13 +1,17 @@
 #include "stdafx.h"
+#include "Component.h"
 #include "InputManager.h"
 
 InputManager::InputManager()
 {
+    
 }
 
 InputManager::~InputManager()
 {
 }
+
+
 
 void InputManager::HandleEvent()
 {
@@ -16,8 +20,7 @@ void InputManager::HandleEvent()
     switch (event.type)
     {
     case SDL_QUIT:
-        g_MessageBus = Message(E_Engine_SystemQuit);
-        UpdateEvent();
+        Invoke(EV_CUBE_QUIT,0u);
         break;
     case SDL_KEYDOWN:
     case SDL_KEYUP:
@@ -31,14 +34,3 @@ void InputManager::HandleEvent()
     }
 }
 
-void InputManager::UpdateEvent()
-{
-    Send(g_MessageBus);
-}
-
-void InputManager::OnNotify(Message message)
-{
-    if (message.GetEventType() == E_Input_RequestPoll) {
-        HandleEvent();
-    }
-}

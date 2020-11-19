@@ -1,15 +1,14 @@
 #pragma once
-#include "stdafx.h"
-#include "BusNode.h"
-class ErrorManager:public BusNode
+
+class ErrorManager
 {
 public:
-	ErrorManager(){}
-	~ErrorManager() {}
-	void UpdateEvent();
+	ErrorManager();
+	~ErrorManager();
+	
 protected:
 private:
-	void OnNotify(Message message);
+	
 
 };
 

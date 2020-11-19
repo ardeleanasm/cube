@@ -1,27 +1,28 @@
 #pragma once
-#include "BusNode.h"
+#include "Component.h"
+#include "RenderManager.h"
 #include "Sprite.h"
-#include "Message.h"
-class SceneManager : public BusNode
+
+class SceneManager:public Component
 {
 public:
 	SceneManager();
-	void Init(const size_t windowWidth, const size_t windowHeight);
+	void Init(const size_t windowWidth, const size_t windowHeight, RenderManager *renderer);
 	virtual ~SceneManager();
-	void UpdateEvent();
+	void UpdateScene();
 protected:
 	virtual void DrawScene() {
 		
 	}
 	void Draw(size_t x, size_t y, Uint8 r,Uint8 g,Uint8 b,Uint8 a);
-	void OnNotify(Message message);
+	void CommitDraw();
 
 	size_t n_WindowWidth;
 	size_t n_WindowHeight;
 private:
-	Message g_MessageBus;
-	void HandleEvent();
+	RenderManager* p_Renderer = nullptr;
+	
 	Sprite* p_DrawTarget = nullptr;
-
+	
 
 };

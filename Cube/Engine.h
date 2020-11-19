@@ -1,14 +1,13 @@
 #pragma once
 #include "stdafx.h"
-#include "BusNode.h"
-class Message;
-class MessageBus;
+#include "CubeEvent.h"
+
 class ErrorManager;
 class WindowManager;
 class RenderManager;
 class InputManager;
 class SceneManager;
-class Engine:public BusNode
+class Engine
 {
 public:
 	Engine(std::string gameTitle);
@@ -16,15 +15,16 @@ public:
 	void Start(SceneManager *arg);
 	void Run();
 	void Stop();
-	void UpdateEvent();
+	
 
+	void HandleEvent(CubeEvent eventId, Uint16 eventData);
 protected:
 private:
-	void OnNotify(Message message);
-	void HandleEvents();
+	//HandleEvent will replace messagebus! ;)
+	
 	std::string s_GameTitle;
 	std::atomic<bool> b_IsRunning{ false };
-	std::shared_ptr<MessageBus> p_MessageBus;
+
 	std::unique_ptr<ErrorManager> p_ErrorManager;
 	std::unique_ptr<WindowManager> p_WindowManager;
 	std::unique_ptr<RenderManager> p_RenderManager;
@@ -32,6 +32,6 @@ private:
 	std::unique_ptr<SceneManager> p_SceneManager;
 	const size_t n_WindowWidth = 800;
 	const size_t n_WindowHeight = 600;
-	Message g_BusMessage;
+	
 };
 

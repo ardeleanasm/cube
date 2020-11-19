@@ -17,7 +17,7 @@ protected:
 			}
 
 		}
-		UpdateEvent();
+		CommitDraw();
 	}
 };
 
