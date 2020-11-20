@@ -22,7 +22,6 @@ public:
 protected:
 private:
 	void OnNotify(Message message);
-	void HandleEvents();
 	
 	std::string s_GameTitle;
 	std::atomic<bool> b_IsRunning{ false };

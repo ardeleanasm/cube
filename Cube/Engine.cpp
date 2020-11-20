@@ -73,7 +73,7 @@ void Engine::Run()
         /*Update Renderer*/
         g_BusMessage = Message(E_Renderer_Render);
         UpdateEvent();
-        
+
         /*Commit Transactions*/
         p_MessageBus->Notify();
 
@@ -87,17 +87,17 @@ void Engine::Run()
         Render->draw();*/
 
     }
+
+   
+    
 }
 
 
 
 void Engine::Stop()
 {
-    
     SDL_Quit();
 }
-
-
 
 void Engine::UpdateEvent()
 {
