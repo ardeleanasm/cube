@@ -4,7 +4,7 @@
 class RenderManager :public BusNode
 {
 public:
-	RenderManager(const size_t windowWidth, const size_t windowHeight);
+	RenderManager(const Sint32 windowWidth, const Sint32 windowHeight);
 	virtual ~RenderManager();
 	
 	void Init(SDL_Window* window);
@@ -16,8 +16,8 @@ protected:
 private:
 	SDL_Renderer* p_Renderer = nullptr;
 	SDL_Texture* p_Texture = nullptr;
-	size_t n_WindowWidth;
-	size_t n_WindowHeight;
+	Sint32 n_WindowWidth;
+	Sint32 n_WindowHeight;
 	Sprite* p_Sprite = nullptr;
 };
 

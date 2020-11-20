@@ -31,8 +31,8 @@ private:
 	std::unique_ptr<RenderManager> p_RenderManager;
 	std::unique_ptr<InputManager> p_InputManager;
 	std::unique_ptr<SceneManager> p_SceneManager;
-	const size_t n_WindowWidth = 800;
-	const size_t n_WindowHeight = 600;
+	const Sint32 n_WindowWidth = 800;
+	const Sint32 n_WindowHeight = 600;
 	Message g_BusMessage;
 	
 };

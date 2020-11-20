@@ -10,13 +10,21 @@ class GameLogic : public SceneManager {
 protected:
 	void DrawScene()
 	{
-		for (int x = 0; x < n_WindowWidth; x++) {
+		/*for (int x = 0; x < n_WindowWidth; x++) {
 			for (int y = 0; y <n_WindowHeight; y++) {
 				Draw(x, y, rand() % 256, rand() % 256, rand() % 256, 255); 
 
 			}
 
-		}
+		}*/
+		DrawLine(0, 0, 800, 600, GREEN,0xAA55AA55);
+		DrawLine(0, 300, 800, 300, RED,0xAA55AA55);
+		DrawLine(400, 0, 400, 600, BLUE, 0xAA55AA55);
+		DrawCircle(400, 300, 100, CYAN);
+		FillCircle(200, 200, 50, YELLOW);
+		DrawRect(0, 0, 100, 100,DARK_YELLOW);
+		FillRect(150, 0, 100, 100, DARK_YELLOW);
+		
 		UpdateEvent();
 	}
 };

@@ -86,5 +86,8 @@
     <ClInclude Include="MessageType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="vector2d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
