@@ -182,6 +182,7 @@
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="vector2d.h" />
     <ClInclude Include="WindowManager.h" />
     <ClInclude Include="CubeEngineErrors.h" />
     <ClInclude Include="Engine.h" />

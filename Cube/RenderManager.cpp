@@ -2,7 +2,7 @@
 #include "RenderManager.h"
 
 
-RenderManager::RenderManager(const size_t windowWidth, const size_t windowHeight) :n_WindowWidth(windowWidth), n_WindowHeight(windowHeight)
+RenderManager::RenderManager(const Sint32 windowWidth, const Sint32 windowHeight) :n_WindowWidth(windowWidth), n_WindowHeight(windowHeight)
 {
 	
 }
