@@ -5,7 +5,7 @@
 class BusNode
 {
 public:
-    BusNode(){}
+    BusNode() {}
 
     virtual void UpdateEvent() {};
     void Register(MessageBus* messageBus) {

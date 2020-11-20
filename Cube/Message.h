@@ -14,18 +14,12 @@ public:
         g_EventDataU16 = eventData;
     }
 
-    Message(const Uint16 eventType) 
+    Message(const Uint16 eventType)
     {
         e_EventType = (MessageType_t)eventType;
     }
 
-    Message(const Uint16 eventType, Sprite*eventData)
-    {
-        e_EventType = (MessageType_t)eventType;
-        p_EventSpriteObj = eventData;
-    }
     
-
     ~Message()
     {
 
@@ -42,16 +36,9 @@ public:
         return g_EventDataU16;
     }
 
-    Sprite* GetEventSpriteObj() const
-    {
-        return p_EventSpriteObj;
-    }
-
 private:
     MessageType_t e_EventType;
     Uint16 g_EventDataU16;
-    Sprite* p_EventSpriteObj;
+    
 
 };
-
-

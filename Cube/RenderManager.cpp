@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "RenderManager.h"
-#include "MessageType.h"
-#include "Pixel.h"
+
 
 RenderManager::RenderManager(const size_t windowWidth, const size_t windowHeight) :n_WindowWidth(windowWidth), n_WindowHeight(windowHeight)
 {
@@ -13,6 +12,9 @@ RenderManager::~RenderManager()
 	if (p_Renderer != nullptr) {
 		SDL_DestroyRenderer(p_Renderer);
 
+	}
+	if (p_Texture != nullptr) {
+		SDL_DestroyTexture(p_Texture);
 	}
 }
 
@@ -32,13 +34,39 @@ void RenderManager::Init(SDL_Window* window)
 			rendererIndex = i;
 			break;
 		}
-		p_Renderer = SDL_CreateRenderer(window, rendererIndex, 0);
+		p_Renderer = SDL_CreateRenderer(window, rendererIndex, SDL_RENDERER_ACCELERATED);
+
+		if (p_Renderer != nullptr) {
+			p_Texture = SDL_CreateTexture(p_Renderer, SDL_PIXELFORMAT_RGBA32, SDL_TEXTUREACCESS_TARGET, n_WindowWidth, n_WindowHeight);
+			//TODO: Change access to streaming
+
+		}
+
 	}
 
 	
 
 	
 }
+
+void RenderManager::Prepare(Sprite* sprite)
+{
+	p_Sprite = sprite;
+}
+
+
+void RenderManager::Render()
+{
+	SDL_RenderClear(p_Renderer);
+	
+	SDL_UpdateTexture(p_Texture, NULL, p_Sprite->GetSurface()->pixels, p_Sprite->GetSurface()->pitch);
+
+	SDL_RenderCopy(p_Renderer, p_Texture, NULL, NULL);
+
+	SDL_RenderPresent(p_Renderer);
+	
+}
+
 
 void RenderManager::UpdateEvent()
 {
@@ -50,30 +78,4 @@ void RenderManager::OnNotify(Message message)
 		Render();
 
 	}
-	if (message.GetEventType() == E_Renderer_Scene) {
-		p_Sprite = message.GetEventSpriteObj();
-		
-	}
 }
-
-void RenderManager::Render()
-{
-	SDL_RenderClear(p_Renderer);
-	//Draw stuff
-	if (p_Sprite != nullptr) {
-		for (size_t i = 0; i < n_WindowWidth; i++) {
-			for (size_t j = 0; j < n_WindowHeight; j++) {
-				Pixel p = p_Sprite->GetPixel(i, j);
-				SDL_SetRenderDrawColor(p_Renderer, p.GetChannelRed(), p.GetChannelGreen(), p.GetChannelBlue(), p.GetChannelAlpha());
-				SDL_RenderDrawPoint(p_Renderer, i, j);
-			}
-		}
-		
-	}
-	
-
-	SDL_RenderPresent(p_Renderer);
-}
-
-
-

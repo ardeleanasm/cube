@@ -1,8 +1,7 @@
 #include "stdafx.h"
 #include "CubeEngineErrors.h"
 #include "WindowManager.h"
-#include "MessageType.h"
-#include "Message.h"
+
 WindowManager::WindowManager()
 {
 
@@ -25,20 +24,17 @@ void WindowManager::Init(std::string title, int posX, int posY, int width, int h
 	
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
 		g_ErrorEventMessage = ESDLInit;
-		UpdateEvent();
+		
 	}
 	else {
 		p_Window = SDL_CreateWindow(title.c_str(), posX, posY, width, height, flags);
 		if (p_Window == nullptr) {
 			g_ErrorEventMessage =EWindowInit;
-			UpdateEvent();
+		
 		}
 		
 	}
 }
-
-
-
 
 
 void WindowManager::UpdateEvent()
@@ -52,3 +48,5 @@ void WindowManager::UpdateEvent()
 void WindowManager::OnNotify(Message message)
 {
 }
+
+

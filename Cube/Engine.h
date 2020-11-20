@@ -8,7 +8,7 @@ class WindowManager;
 class RenderManager;
 class InputManager;
 class SceneManager;
-class Engine:public BusNode
+class Engine : public BusNode
 {
 public:
 	Engine(std::string gameTitle);
@@ -16,12 +16,13 @@ public:
 	void Start(SceneManager *arg);
 	void Run();
 	void Stop();
-	void UpdateEvent();
+	
 
+	void UpdateEvent();
 protected:
 private:
 	void OnNotify(Message message);
-	void HandleEvents();
+	
 	std::string s_GameTitle;
 	std::atomic<bool> b_IsRunning{ false };
 	std::shared_ptr<MessageBus> p_MessageBus;
@@ -33,5 +34,6 @@ private:
 	const size_t n_WindowWidth = 800;
 	const size_t n_WindowHeight = 600;
 	Message g_BusMessage;
+	
 };
 

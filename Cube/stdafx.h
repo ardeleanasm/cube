@@ -19,7 +19,9 @@
 #include <vector>
 #include <optional>
 #include <algorithm>
-#include <cstring>
+#include <string>
+#include <chrono>
+#include <thread>
 #include "SDL.h"
 
 

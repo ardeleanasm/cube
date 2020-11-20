@@ -19,7 +19,7 @@ Engine::~Engine()
 
 void Engine::Start(SceneManager* arg)
 {
-    
+
     /*Initialize Memory*/
 
     /*Initialize comm buss*/
@@ -33,23 +33,23 @@ void Engine::Start(SceneManager* arg)
     p_WindowManager = std::make_unique<WindowManager>();
     p_WindowManager->Register(p_MessageBus.get());
     p_WindowManager->Init(s_GameTitle, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, n_WindowWidth, n_WindowHeight, false);
-    
+
     /*Register Input manager*/
     p_InputManager = std::make_unique<InputManager>();
     p_InputManager->Register(p_MessageBus.get());
-    
+
 
     /*Register Renderer */
     p_RenderManager = std::make_unique<RenderManager>(n_WindowWidth, n_WindowHeight);
     p_RenderManager->Register(p_MessageBus.get());
     p_RenderManager->Init(p_WindowManager->GetWindowObject());
-    
-    
+
+
     /*Register SceneManager*/
     p_SceneManager = std::unique_ptr<SceneManager>(arg);
     p_SceneManager->Register(p_MessageBus.get());
-    p_SceneManager->Init(n_WindowWidth, n_WindowHeight);
-    
+    p_SceneManager->Init(n_WindowWidth, n_WindowHeight,p_RenderManager.get());
+
 
 
     this->Register(p_MessageBus.get());
@@ -57,19 +57,23 @@ void Engine::Start(SceneManager* arg)
 
 }
 
+
+
 void Engine::Run()
 {
     while (b_IsRunning) {
         /*Read Keys*/
         g_BusMessage = Message(E_Input_RequestPoll);
         UpdateEvent();
-        /*Update Renderer*/
-        g_BusMessage = Message(E_Renderer_Render);
-        UpdateEvent();
 
         /*Update SceneManager*/
         g_BusMessage = Message(E_Scene_UserUpdate);
         UpdateEvent();
+
+        /*Update Renderer*/
+        g_BusMessage = Message(E_Renderer_Render);
+        UpdateEvent();
+
         /*Commit Transactions*/
         p_MessageBus->Notify();
 
@@ -83,19 +87,21 @@ void Engine::Run()
         Render->draw();*/
 
     }
+
+   
+    
 }
 
 
 
 void Engine::Stop()
 {
-    
     SDL_Quit();
 }
 
 void Engine::UpdateEvent()
 {
-    
+
     Send(g_BusMessage);
 }
 
@@ -105,5 +111,3 @@ void Engine::OnNotify(Message message)
         b_IsRunning = false;
     }
 }
-
-
