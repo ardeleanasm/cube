@@ -37,6 +37,16 @@ void WindowManager::Init(std::string title, int posX, int posY, int width, int h
 }
 
 
+void WindowManager::UpdateEvent()
+{
+	Message message(E_ErrMng_TriggerError, g_ErrorEventMessage);
+	Send(message);
+}
 
+
+
+void WindowManager::OnNotify(Message message)
+{
+}
 
 

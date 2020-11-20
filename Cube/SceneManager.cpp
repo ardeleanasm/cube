@@ -19,10 +19,7 @@ SceneManager::~SceneManager()
 {
 }
 
-void SceneManager::UpdateScene()
-{
-	DrawScene();
-}
+
 
 void SceneManager::Draw(size_t x, size_t y, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
 {
@@ -35,9 +32,17 @@ void SceneManager::Draw(size_t x, size_t y, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
 		
 }
 
-void SceneManager::CommitDraw()
+
+
+void SceneManager::UpdateEvent()
 {
 	p_Renderer->Prepare(p_DrawTarget);
 }
 
+void SceneManager::OnNotify(Message message)
+{
+	if (message.GetEventType() == E_Scene_UserUpdate) {
+		DrawScene();
+	}
 
+}

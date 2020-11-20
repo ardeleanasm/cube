@@ -74,10 +74,16 @@
     <ClInclude Include="Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Component.h">
+    <ClInclude Include="BusNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CubeEvent.h">
+    <ClInclude Include="MessageBus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Message.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

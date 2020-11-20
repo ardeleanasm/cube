@@ -68,4 +68,14 @@ void RenderManager::Render()
 }
 
 
+void RenderManager::UpdateEvent()
+{
+}
 
+void RenderManager::OnNotify(Message message)
+{
+	if (message.GetEventType() == E_Renderer_Render) {
+		Render();
+
+	}
+}

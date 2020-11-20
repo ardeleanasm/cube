@@ -1,17 +1,16 @@
 #pragma once
-#include "Component.h"
-class InputManager:public Component
+#include "BusNode.h"
+#include "Message.h"
+class InputManager : public BusNode
 {
-public: 
+public:
 	InputManager();
 	virtual ~InputManager();
-	
-	
-	void HandleEvent();
+
+	void UpdateEvent();
 protected:
-	
+	void OnNotify(Message message);
 private:
-	
-
+	Message g_MessageBus;
+	void HandleEvent();
 };
-
