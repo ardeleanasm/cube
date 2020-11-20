@@ -59,11 +59,6 @@ void RenderManager::Render()
 {
 	SDL_RenderClear(p_Renderer);
 	
-	//Just Draw the surface
-	/*p_Texture = SDL_CreateTextureFromSurface(p_Renderer, p_Sprite->GetSurface());
-	if (p_Texture != nullptr) {
-
-	}*/
 	SDL_UpdateTexture(p_Texture, NULL, p_Sprite->GetSurface()->pixels, p_Sprite->GetSurface()->pitch);
 
 	SDL_RenderCopy(p_Renderer, p_Texture, NULL, NULL);
