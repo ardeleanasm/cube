@@ -5,7 +5,7 @@
 
 #include "Engine.h"
 #include "SceneManager.h"
-
+#include "CubeInputStates.h"
 class GameLogic : public SceneManager {
 protected:
 	void DrawScene()
@@ -17,16 +17,32 @@ protected:
 			}
 
 		}*/
+		
+		
+		DrawLine(0, 0, 800, 600, GREEN, 0xAA55AA55);
 		DrawLine(0, 0, 800, 600, GREEN,0xAA55AA55);
 		DrawLine(0, 300, 800, 300, RED,0xAA55AA55);
 		DrawLine(400, 0, 400, 600, BLUE, 0xAA55AA55);
 		DrawCircle(400, 300, 100, CYAN);
-		FillCircle(200, 200, 50, YELLOW);
-		DrawRect(0, 0, 100, 100,DARK_YELLOW);
-		FillRect(150, 0, 100, 100, DARK_YELLOW);
 		
-		UpdateEvent();
+		DrawRect(0, 0, 100, 100,DARK_YELLOW);
+		
+		
+		CommitChanges();
 	}
+
+	void HandleKeyEvents(Sint8 key, Uint8 state) {
+		if (key == 'a' && state == EKeyDown ) {
+			FillCircle(200, 200, 50, YELLOW);
+		}
+		if (key == 'b') {
+			i++;
+			FillRect(150, 0, 100*i, 100, DARK_YELLOW);
+		}
+		CommitChanges();
+	}
+private:
+	int i = 0;
 };
 
 int main(int argc, char** args)

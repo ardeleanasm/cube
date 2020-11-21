@@ -31,7 +31,7 @@ void SceneManager::Draw(Sint32 x, Sint32 y, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
 
 
 
-void SceneManager::UpdateEvent()
+void SceneManager::CommitChanges()
 {
 	p_Renderer->Prepare(p_DrawTarget);
 }
@@ -40,6 +40,11 @@ void SceneManager::OnNotify(Message message)
 {
 	if (message.GetEventType() == E_Scene_UserUpdate) {
 		DrawScene();
+	}
+	if (message.GetEventType() == E_Scene_KeyEvent) {
+		auto key = message.GetEventDataPair();
+		
+		HandleKeyEvents(key.first, key.second);
 	}
 
 }
