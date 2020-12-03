@@ -13,5 +13,9 @@ enum CubeMouseState_t :Uint8 {
 	ERightMouseButtonUp,
 	ERightMouseButtonDown,
 	EMiddleMouseButtonUp,
-	EMiddleMouseButtonDown
+	EMiddleMouseButtonDown,
+	EMouseWheelUp,
+	EMouseWheelDown,
+	EMouseWheelLeft,
+	EMouseWheelRight
 };

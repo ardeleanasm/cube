@@ -16,5 +16,7 @@ enum MessageType_t :Uint16 {
 
 	E_Scene_MouseEvent,				//Signal SceneManager that we have a mouse event
 
+	
+
 
 };

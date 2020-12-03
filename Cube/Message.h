@@ -29,6 +29,7 @@ public:
         g_EventDataTriple = eventData;
     }
     
+   
     ~Message()
     {
 
@@ -45,6 +46,9 @@ public:
         return g_EventDataU64;
     }
 
+    
+
+
     std::pair<Sint8, Uint8> GetEventDataPair() const {
         return g_EventDataPair;
     }
@@ -55,6 +59,7 @@ public:
 private:
     MessageType_t e_EventType;
     Uint64 g_EventDataU64;
+    
     std::pair<Sint8, Uint8> g_EventDataPair;
     std::tuple<Uint8, Sint32, Sint32> g_EventDataTriple;
     

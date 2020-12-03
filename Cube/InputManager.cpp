@@ -72,6 +72,22 @@ void InputManager::HandleEvent()
     }
         break;
     case SDL_MOUSEWHEEL:
+        if (event.wheel.y > 0) {
+            // scroll up 
+            g_MessageBus = Message(E_Scene_MouseEvent, std::make_tuple((Uint8)EMouseWheelUp, 0, event.wheel.y));
+        }
+        else if (event.wheel.y < 0) {
+            //scroll down
+            g_MessageBus = Message(E_Scene_MouseEvent, std::make_tuple((Uint8)EMouseWheelDown, 0, event.wheel.y));
+        }
+        if (event.wheel.x > 0) {
+            //scroll right
+            g_MessageBus = Message(E_Scene_MouseEvent, std::make_tuple((Uint8)EMouseWheelUp, event.wheel.x,0));
+        }
+        else if (event.wheel.x < 0) {
+            //scroll left
+            g_MessageBus = Message(E_Scene_MouseEvent, std::make_tuple((Uint8)EMouseWheelUp, event.wheel.y,0));
+        }
         break;
     default:
         break;
