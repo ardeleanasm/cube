@@ -10,12 +10,19 @@ public:
 	SceneManager();
 	void Init(const Sint32 windowWidth, const Sint32 windowHeight, RenderManager *renderer);
 	virtual ~SceneManager();
-	void UpdateEvent();
+	void CommitChanges();
 protected:
 	virtual void DrawScene() {
 		
 	}
 
+	virtual void HandleKeyEvents(Sint8 key, Uint8 state) {
+
+	}
+	
+	virtual void HandleMouseEvents() {
+
+	}
 #pragma region Draw Routines
 	/**
 	 * DrawCircle, FillCircle, DrawSprite and their implementation are inspired from olcPixelGameEngine

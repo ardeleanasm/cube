@@ -54,12 +54,12 @@ Pixel Sprite::GetPixel(Sint32 x, Sint32 y)
 {
 	if (x >= 0 && x < n_SpriteWidth && y >= 0 && y < n_SpriteHeight)
 	{
+		
 		//Convert the pixels to 32 bit
 		Uint32* pixels = (Uint32*)p_Surface->pixels;
 
-		//Set the pixel
+		//Get the requested pixel
 		return pixels[(y * p_Surface->w) + x];
-
 	}
 	return WHITE;
 }
